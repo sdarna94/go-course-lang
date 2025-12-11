@@ -1,0 +1,25 @@
+package main
+
+import "fmt"
+
+var middlename = "John Doe"
+
+func main() {
+
+	//var age int  // This will throw an error because age is not initialized
+	//var name string = "John Doe" // This will work fine
+	//var name1 string = " Doe" // This will work fine
+
+	//fmt.println(firstName) // This will throw an error because firstName is not defined in the main function
+	// fmt.println(middlename) // This will print "John Doe"
+
+	middlename := "Jane"
+
+	fmt.Println(middlename) // This will work fine and print "Jane Doe"
+}
+
+func printName() { // This function will print the name "John Doe"
+	firstName := "John"    // This will work fine
+	fmt.Println(firstName) // This will print "John"
+
+}

@@ -1,0 +1,21 @@
+package main
+
+import ( // import with alias
+	"fmt"          // standard fmt package
+	foo "net/http" // import net/http with alias foo
+)
+
+func main() { // main function
+	fmt.Println("starting the server") // print starting message
+
+	// use the alias foo to call Get method from net/http package
+
+	resp, err := foo.Get("http://example.com") // make HTTP GET request
+	if err != nil {                            // handle error
+		fmt.Println("Error", err) // print error message
+		return                    // exit function on error
+	} // no error
+
+	defer resp.Body.Close()                           // ensure response body is closed
+	fmt.Println("http response status:", resp.Status) // print HTTP response status
+}

@@ -1,0 +1,8 @@
+package main // declare the main package
+
+import "fmt" // import the fmt package
+
+func main() { // main function
+	fmt.Println("Hello, World!")         // print Hello, World! to the console
+	fmt.Println("i am just learing it ") // print another message to the console
+}                                        // end of main function

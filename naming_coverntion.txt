@@ -1,0 +1,42 @@
+package main
+
+import "fmt"
+
+type EmployeeGoogle struct {
+	FristName string
+	LastName  string
+	Age       int
+}
+
+type Employee struct {
+	FristName string
+	LastName  string
+	Age       int
+}
+
+
+func main() {
+	//Pascal case
+	//eg : calculateTotal, StudentName, EmployeeID, newhttpRequest
+
+	//struct , interface , method, enums
+	//snake_case
+	// eg: user_name, employee_id, total_amount, http_request
+
+	//Uppercase
+	//eg: URL, API_KEY, MAX_CONNECTIONS, DEFAULT_TIMEOUT
+	// all constants should be in uppercase
+	// are mutable
+
+	//mixed_case
+	//eg: userName, javaScript
+
+	const MAXRETRIES = 6 // constants are immutable
+	// MAXRETRIES = 10 // this will throw an error
+
+	var employee_Id int = 1235
+	fmt.Println("EmployeeID:", employee_Id)
+
+	fmt.Println("MAXRETRIES:", MAXRETRIES)
+
+}
