@@ -9,6 +9,8 @@ func main() {
 	//--------data types in golang--------
 
 	//var declaration
+	// var variable_name type = value
+	// var variable_name = value
 
 	var age int = 30 // new changes
 	var name = "John Doe"
