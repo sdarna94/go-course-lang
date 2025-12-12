@@ -1,0 +1,58 @@
+package main
+
+import "fmt"
+
+// This program demonstrates a basic for loop in Go.
+func main() {
+	// for i := 1; i < 5; i++ {
+
+	// 	fmt.Println(i)
+	// }
+
+	// //iterate over collection
+
+	// number := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+	// for index, value := range number {
+	// 	fmt.Printf("Index: %d , Value: %d\n", index, value)
+	// }
+
+	// for i := 1; i <= 10; i++ {
+	// 	if i%2 == 0 {
+	// 		continue
+	// 	}
+
+	// 	//fmt.Println("odd numnber =", i)
+
+	// 	if i == 5 {
+	// 		break
+	// 	}
+	// 	fmt.Println("odd numnber =", i)
+	// }
+
+	//rows := 5
+
+	// //outer loop
+	// for i := 1; i <= rows; i++ {
+	// 	//inner loop for before space
+	// 	for j := 1; j < rows-1; j++ {
+
+	// 		fmt.Print(" ")
+
+	// 	}
+	// 	//inner loop for star
+	// 	for k := 1; k <= (2*i - 1); k++ {
+	// 		fmt.Print("*")
+	// 	}
+	// 	fmt.Println()
+
+	// }
+
+	for i := range 10 {
+		i++
+		fmt.Println(i)
+
+	}
+	fmt.Println("Done")
+
+}

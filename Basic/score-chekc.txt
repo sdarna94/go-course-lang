@@ -1,0 +1,18 @@
+package main
+
+import "fmt" 
+
+func main () {
+	var score int
+	fmt.Println("Enter the score: ")
+	fmt.Scan(&score)
+	if score >= 80 {
+		fmt.Println("pas")
+	} else if score >= 60 {
+		fmt.Println("Grade D")
+	} else if score >= 45 {
+		fmt.Println("Grade C")
+
+	}
+
+}
