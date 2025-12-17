@@ -1,0 +1,23 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+
+	var day string
+	fmt.Print("Enter a day of the week: ")
+	fmt.Scanln(&day)
+	day = strings.ToUpper(day)
+
+	switch day {
+	case "MONDAY", "Tuesday", "Wednesday", "Thursday", "Friday":
+		fmt.Println("It's a weekday.")
+	case "Saturday", "Sunday":
+		fmt.Println("It's the weekend!")
+	default:
+		fmt.Println("Invalid day entered.")
+	}
+}
