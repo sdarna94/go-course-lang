@@ -1,0 +1,26 @@
+package main
+
+import "fmt"
+
+func main() {
+	//fmt.Println("World")
+
+	// Trigger a panic
+	//panic("Something went wrong!")
+	// This line will not be executed
+	//fmt.Println("This will not be printed")
+	add(13)
+}
+
+func add(a int) {
+	defer fmt.Println("add function completed")
+	defer fmt.Println("This will be printed last")
+	if a > 10 {
+		defer fmt.Println("Exiting add function")
+		panic("The value is too high!")
+
+	} else {
+		fmt.Println("Value is acceptable.")
+	}
+
+}
