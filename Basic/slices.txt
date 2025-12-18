@@ -1,0 +1,55 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println("Hello, World!")
+	//var slice=[]elementype{value}
+	var number = []int{1, 2, 3, 4, 5}
+	fmt.Println("The array is:", number)
+	number1 := [7]int{2, 3, 4, 4}
+	fmt.Println("The array is:", number1)
+
+	slices := number[1:3]
+	fmt.Println("The slice  is:", slices)
+
+	// append function
+	slices1 := append(slices, 6)
+	fmt.Println("The slice1 is", slices1)
+
+	// copy function
+	slices2 := make([]int, len(slices1))
+	copy(slices2, slices1)
+	fmt.Println("The slice2 is", slices2)
+	//pointer in slices
+
+	var a = []int{1, 2, 3}
+	var b *[]int
+	b = &a
+
+	fmt.Println("The value of b is", *b)
+
+	(*b)[0] = 10 // this will work because
+	// *b is a slice and we can modify the slice directly using pointer
+	// b[1] = 20 // this will give error because
+	// b is a pointer to a slice and we cannot directly modify the slice using pointer
+
+	fmt.Println("The value of a is", a)
+
+	for i, v := range a { // range function
+		fmt.Println(i, v) // this will print the index and value of the slice
+	}
+
+	a[2] = 30 // this will work because we are modifying the slice directly
+	fmt.Println("The value of a is", a)
+
+	number1[4] = 10
+	number1[6] = 10 // this will give error because
+
+	for i, v := range number1 {
+		fmt.Println(i, v) // this will print the index and value of the array
+
+	}
+}

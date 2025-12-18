@@ -1,0 +1,60 @@
+package main
+
+import "fmt"
+
+func main() {
+	// //var arrayName [size]dataType
+	// var numbers [5]int
+	// fmt.Println(numbers)
+
+	// numbers[0] = 10
+	// fmt.Println(numbers)
+	// numbers[4] = 20
+	// fmt.Println(numbers)
+
+	// // Declare and initialize an array
+	// //var arrayName = [size]dataType{value1, value2, ..., valueN}
+	// frutis := [3]string{"Apple", "Banana", "Mango"} // Array of strings
+	// fmt.Println("No of frutis ", frutis)            // Output: [Apple Banana Mango]
+
+	// oldfrutis := frutis // Copying array
+	// // Displaying both arrays
+	// // Modifying oldfrutis will not affect frutis
+	// oldfrutis[0] = "Orange" // Changing first element of oldfrutis
+	// // Displaying both arrays
+	// fmt.Println("No of frutis ", oldfrutis) // Output: [Orange Banana Mango]
+	// fmt.Println("No of frutis ", frutis)    // Output: [Apple Banana Mango]
+
+	// //compring arrays
+
+	// array1 := [4]int{3, 5, 7, 9}
+	// array2 := [4]int{3, 5, 7, 0}
+	// array3 := [4]int{3, 5, 7, 9}
+
+	// if array1 == array2 && array1 == array3 {
+	// 	fmt.Println("Arrays are equal")
+	// } else {
+	// 	fmt.Println("Arrays are not equal")
+	// }
+
+	// fmt.Print(len(array1))
+
+	// var matrix [3][3]int = [3][3]int{{0, 1, 2}, {4, 5, 6}, {7, 8, 9}}
+	// fmt.Println("Matrix: ", matrix) // Output: [[0 1 2] [3 4 5] [6 7 8]]
+
+	// copy from orginal array to new array
+	// orginalArry := [5]int{1, 2, 3, 4, 5}
+	// copyArrya := orginalArry
+	// copyArrya[0] = 10
+	// fmt.Println("copy  Array: ", copyArrya)
+	// fmt.Println("Original Array: ", orginalArry)
+
+	//usig pointer to copy array
+	orginalArry := [5]int{1, 2, 3, 4, 5} // Original array
+	var copyArray *[5]int                // Pointer to an array of 5 integers
+	copyArray = &orginalArry             // Assigning address of original array to pointer
+	// Modifying the copyArray will affect the original array
+	copyArray[2] = 10
+	fmt.Println("copy  Array: ", *copyArray)
+	fmt.Println("Original Array: ", orginalArry)
+}
