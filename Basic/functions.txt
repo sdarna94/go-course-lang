@@ -1,0 +1,33 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	fmt.Println("This is the manual function.")
+	//function implementation
+	//  func< function_name > ( <parameters> ) returntype {      // function signature
+	//  <function_body>                                          //code to be executed
+	//  return <return_values>                                     // return statement (if any)
+	//  }
+	sum := add(5, 10) // function call
+	fmt.Println(sum)
+
+	// anonymous function
+	gret := func() { // anonymous function
+		fmt.Println("This is an anonymous function.")
+	}
+	gret() // calling the anonymous function
+
+	result := operate(5, 3, add)
+	fmt.Println("Result of operate function:", result)
+
+}
+func add(a, b int) int { // function definition
+	return a + b // return statement
+}
+
+//function take function as argument
+func operate(x int, y int, op func(int, int) int) int {
+	return op(x, y)
+}

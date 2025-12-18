@@ -1,0 +1,41 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+func main() {
+	fmt.Println("Multi Return Function Example")
+
+	//func functionName(parameter1 type1, parameter2 type2 ...) (returnType1, returnType2 ...){
+	// function body
+	// return value1, value2 ...
+	//}
+
+	remainder, quotient := divid(10, 3)
+	fmt.Println("Remainder:", remainder)
+	fmt.Println("Quotient:", quotient)
+
+	resutl, err := greater(4, 5)
+	if err != nil {
+		fmt.Println("Error:", err)
+	} else {
+		fmt.Println(resutl)
+	}
+}
+func divid(a int, b int) (int, int) {
+	quotient := a / b
+	remainder := a % b
+	return quotient, remainder
+}
+
+func greater(a, b int) (string, error) {
+	if a > b {
+		return "a is greater", nil
+	} else if b > a {
+		return "b is greater", nil
+	} else {
+		return "", errors.New("both are equal")
+	}
+}

@@ -1,0 +1,25 @@
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, World!")
+	//... Ellipsis in function parameters
+	// func functionName(params ...type) returnType {
+	//     // function body
+	// }
+	//stat, result := sum("Total Sum:", 10, 20, 30, 40, 50, 60)
+	//fmt.Println(stat, result)
+
+	number := []int{10, 20, 30, 40, 50, 60}
+	stat, result := sum(4, number...)
+	fmt.Println(stat, result)
+}
+
+func sum(stat int, numb ...int) (int, int) {
+	result := 0 // Initialize total to 0
+	for _, v := range numb {
+		result += v // Summing up all the numbers
+	}
+	return stat, result
+}
