@@ -1,0 +1,44 @@
+package main
+
+import "fmt"
+
+type rectangle struct {
+	width  int
+	height int
+	length int
+}
+
+func (r rectangle) area() int {
+	return r.width * r.height * r.length
+
+}
+
+type myint int
+
+func (myint) hello() string {
+	//fmt.Println("Hello from myint")
+	return ("Hello from myint")
+}
+
+func main() {
+	fmt.Println("Hello, World!")
+	r := rectangle{width: 10, height: 5, length: 2}
+
+	fmt.Println("Area of rectangle:", r.area())
+
+	//metods with pointer receivers
+	//r2 := &rectangle{width: 11, height: 3, length: 4}
+	//fmt.Println("Area of rectangle with pointer receiver:", r2.area())
+	//r.scale(2)
+	fmt.Println("Scaled Area of rectangle:", r.scale(4))
+
+	//fmt.Println(hello())
+	//fmt.Println(myint.hello())
+}
+ 
+func (r *rectangle) scale(factor int) int {
+	r.width *= factor  //r.width = r.width * 2
+	r.height *= factor //r.height = r.height * 2
+	//r.length *= factor
+	return r.area()
+}

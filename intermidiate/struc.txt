@@ -1,0 +1,68 @@
+package main
+
+import (
+	"fmt"
+	//"struct"
+)
+
+func main() {
+	fmt.Println("hello world")
+
+	p := person{
+		name:  "Alice",
+		age:   30,
+		phone: 1234567890,
+		address: address{
+			street: "123 Main St",
+			city:   "Metropolis",
+		},
+		mobile: mobile{
+			cell: "555-1234",
+			home: "555-5678",
+		},
+	}
+
+	fmt.Println(p.name + " lives in " + p.address.city)
+	fmt.Println(p.name + " lives in " + p.city)
+	fmt.Println("Cell phone:", p.cell)
+
+	//fmt.Println(p1.phone + " lives in " + p1.address.street)
+	//fmt.Println(p1.address.street + " lives in " + (p1.fullname()))
+
+	// Anonymous Struct
+
+	s := struct {
+		x int
+		y int
+	}{
+		x: 10,
+		y: 20,
+	}
+	fmt.Println(s.x)
+
+	//methods with structs
+	//fmt.Println(p.fullname(p1))
+
+}
+
+type person struct {
+	name  string
+	age   int
+	phone int
+	address
+	mobile
+}
+
+type mobile struct {
+	cell string
+	home string
+}
+
+func (person1 person) fullname() string { //method with struct
+	return person1.name
+}
+
+type address struct {
+	street string
+	city   string
+}

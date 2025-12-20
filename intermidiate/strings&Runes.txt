@@ -1,0 +1,30 @@
+package main
+
+import (
+	"fmt"
+	"unicode/utf8"
+)
+
+func main() {
+	str := "Hello, 世界"
+	fmt.Println(str)
+
+	var a *string = &str
+	fmt.Println(a)
+
+	str1 := "Hello"     //ascii value of H is 72 //
+	str2 := "Hello, Go" //ascii value of H is 72
+
+	fmt.Println(str1 < str2) // false
+
+	str3 := "how r you "
+	for i, char := range str3 {
+
+		fmt.Printf("the index is %d in %c\n  is", i, char)
+
+	}
+	fmt.Println("RuneCount is : ", utf8.RuneCountInString(str2))
+	//reune is the number of unicode code points in a string // it counts the number of runes in a string //
+	//it is used to count the number of characters in a string //
+	fmt.Println("the lenght is ", len(str2))// it counts the number of bytes in a string //
+}

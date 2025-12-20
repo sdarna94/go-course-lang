@@ -1,0 +1,37 @@
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("This is the intermidiate package")
+
+	seq := sequence()
+	fmt.Println("First call:", seq())
+	//fmt.Println("Second call:", seq())
+	//fmt.Println("Third call:",seq())
+
+	subtract := func() func(int) int {
+		countdown := 100
+		fmt.Println("Starting countdown from:", countdown)
+		return func(int) int {
+			countdown--
+			fmt.Println("Subtracting from countdown. New value:", countdown)
+			return countdown
+		}
+
+	}()
+	subtract(1)
+	subtract(1)
+	subtract(1)
+	subtract(1)
+}
+
+func sequence() func() int {
+	i := 0
+	fmt.Println("Initializing sequence of I:", i)
+	return func() int {
+		i++
+		fmt.Println("adding 1 to I:")
+		return i
+	}
+}

@@ -1,0 +1,17 @@
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, World!")
+
+	fmt.Println(sumofdigtis(5656566))
+	fmt.Println(sumofdigtis(94))
+}
+
+func sumofdigtis(n int) int {
+	if n <= 3 {
+		return n
+	}
+	return n%10 + sumofdigtis(n/10)
+}
