@@ -1,0 +1,38 @@
+package main
+
+import "fmt"
+
+type person struct {
+	name string
+	age  int
+}
+
+type employ struct {
+	person  //embbed struct
+	emplyid string
+	salary  float64
+}
+
+func (p person) interd() {
+	fmt.Printf("this is %s and my age %d", p.name, p.age)
+
+}
+
+func (e employ) interd() {
+	fmt.Printf("this is %s and my age %d and my salry is %.2f\n", e.name, e.age, e.salary)
+
+}
+
+func main() {
+	fmt.Println("hello world")
+	emp := employ{
+		person:  person{name: "jo", age: 2},
+		emplyid: "e001", salary: 123.4,
+	}
+
+	fmt.Println("name", emp.name)
+	fmt.Println("age ", emp.age)
+	fmt.Println("emplid", emp.emplyid)
+	fmt.Println("salary", emp.salary)
+	emp.interd()
+}

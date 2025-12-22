@@ -1,0 +1,73 @@
+package main
+
+import "fmt"
+
+type geometry interface {
+	area() float64
+	//perimeter() float64
+}
+
+type rectangle struct {
+	width, height float64
+}
+
+type circle struct {
+	radius float64
+}
+
+func (r rectangle) area() float64 {
+	return r.width * r.height
+}
+func (r rectangle) perimeter() float64 {
+	return 2 * (r.height + r.width)
+}
+
+// func (c circle) area() float64 {
+// 	return 2 * c.radius
+// }
+// func (c circle) perimeter() float64 {
+// 	return 2 * 3.14 * c.radius
+// }
+
+// func (c circle) expand(factor float64) {
+// 	c.radius = c.radius * factor
+// }
+
+func describe(g geometry) {
+	fmt.Println("rect area", g.area())
+	//fmt.Println("circle perimeter", g.perimeter())
+	//fmt.Println(g)
+	//fmt.Println(g.expand(2)) // This will cause a compile-time error
+}
+
+func main() {
+	fmt.Println("Hello, World!")
+	v := rectangle{width: 3, height: 4}
+	//f := circle{radius: 5}
+
+	describe(v)
+	//describe(f)
+	mypirnter(1, "print", 240, "desdfef")
+
+}
+
+func mypirnter(i ...any) {
+
+	for _, v := range i {
+		fmt.Println(v)
+	}
+
+	mytype(1)
+	mytype(2)
+	mytype("stirng ")
+}
+
+func mytype(i interface{}) {
+	switch i.(type) {
+	case int:
+		fmt.Println("type int")
+	case string:
+		fmt.Println("type sting")
+	}
+
+}

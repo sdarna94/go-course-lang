@@ -1,0 +1,67 @@
+package main
+
+import (
+	"fmt"
+)
+
+// func square(x float64) (float64, error) { //error
+// 	if x < 0 {
+// 		fmt.Println("no code to handle negative input")
+// 		return 0, fmt.Errorf("cannot compute square root of negative number: %v", x)
+
+// 	}
+// 	fmt.Println("code to compute square root")
+// 	return 0, nil
+// }
+
+// // func process(data []string) (string, error) {
+// // 	// Simulate an error condition
+// // 	if len(data) == 0 {
+// // 		return "0", fmt.Errorf("data cannot be empty")
+// // 	} else {
+// // 		return "processed", nil
+// // 	}
+// // 	// Process the data...
+
+func main() {
+	// 	fmt.Println("Hello, World!")
+	// 	square(-1)
+
+	// 	// result, err := square(-1) //error
+	// 	// if err != nil {
+	// 	// 	fmt.Println("Error:", err)
+	// 	// } else {
+	// 	// 	fmt.Printf("Square computed successfully: %v\n", result)
+	// 	// }
+
+	// 	// data := []string{}
+	// 	// v, err := process(data)
+	// 	// if err != nil {
+	// 	// 	fmt.Println("Error processing data:", err)
+	// 	// } else {
+	// 	// 	fmt.Printf("Data processed successfully: %v\n", v)
+	// 	// }
+
+	err := readdaata("qwe")
+	if err != nil {
+		fmt.Println("Error:", err)
+	} else {
+		fmt.Println("Program continues... ")
+	}
+
+}
+
+func readdaata(data string) error {
+	err := readconfig(data)
+	if err != nil {
+		return fmt.Errorf("error in data %w", err)
+	}
+	return nil
+}
+
+func readconfig(data string) error {
+	if data == "qwe" {
+		return fmt.Errorf("no data provided")
+	}
+	return nil
+}

@@ -1,0 +1,47 @@
+package main
+
+import "fmt"
+
+type stack[T any] struct { // generic struct with type parameter T of any type
+	elements []T // generic type slice its a list of elements of type T
+	// elements will hold the stack elements
+
+}
+
+func (s *stack[T]) push(elements T) { // method to push element of type T onto the stack
+	s.elements = append(s.elements, elements) // append element to the elements slice
+}
+
+// func swap[T any](c, d T) (T, T) {
+// 	//generic[ type parameter  T any means T can be any type (int, string, float etc)
+// 	// like template in c++ ]
+// 	//(c, d T) means function takes two parameters of type T
+// 	//( T, T) means function returns two values of type T
+// 	return d, c
+//}
+
+func main() {
+
+	// x, y := 1, 2
+	// x, y = swap(x, y)
+	// fmt.Println(x, y)
+
+	// x1, y1 := "hello", " world"
+	// x1, y1 = swap(x1, y1)
+	// fmt.Println(x1, y1)
+
+	// Create a stack instance
+	s := stack[int]{}
+
+	// Push some elements
+	s.push(10)
+	s.push(20)
+	s.push(30)
+
+	// Print stack and elements
+	fmt.Println("Stack:", s)
+	fmt.Println("Elements:", s.elements)
+	fmt.Println("Number of elements:", len(s.elements))
+	
+
+}
