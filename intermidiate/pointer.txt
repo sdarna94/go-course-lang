@@ -13,7 +13,7 @@ func main() {
 	fmt.Println("Value at address p:", *p)
 
 	modify(p)
-	fmt.Println("Modified value of a:", *p)
+	fmt.Println("Modified value of a:", a)
 
 }
 
