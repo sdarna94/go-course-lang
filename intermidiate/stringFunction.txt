@@ -1,0 +1,58 @@
+package main
+
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
+
+func main() {
+	str := "hello wolrds"
+	fmt.Println(len(str))
+
+	str2 := "你好，世界"
+
+	str3 := str + " " + str2
+
+	fmt.Println(str + " " + str2)
+	fmt.Println(len(str3))
+
+	fmt.Println(str[4])
+	fmt.Println(str[1:4])
+
+	//string convertion
+
+	numb := 18
+	strnumb := strconv.Itoa(numb)
+	fmt.Println(len(strnumb))
+
+	//string split
+	furits := "apple,banana,grape"
+	furitsplit := strings.Split(furits, ",")
+	fmt.Println(furitsplit)
+	fmt.Println(furitsplit[1])
+
+	//string contains
+	fmt.Println(strings.Contains(furits, "aa"))
+
+	//string replace
+	newstr := strings.Replace(furits, "a", "A", 2)
+	fmt.Println(newstr)
+	//string to lower and upper
+	fmt.Println(strings.ToLower(furits))
+	fmt.Println(strings.ToUpper(furits))
+	//String builder
+	var builder strings.Builder
+	builder.WriteString("Hello")
+	builder.WriteString(" go-lang")
+	builder.WriteString(" world")
+	fmt.Println(builder.String())
+
+	builder.WriteString("!!!")
+	fmt.Println(builder.String())
+	builder.Reset()
+	builder.WriteString("its new day")
+	builder.WriteString(" to code")
+	builder.WriteString(" in go-lang")
+	fmt.Println(builder.String())
+}

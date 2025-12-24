@@ -1,0 +1,62 @@
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"text/template"
+)
+
+func main() {
+
+	// tmpl, err := template.New("example").Parse("hello,{{.1}} how are you?")
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// data := map[int]int{
+	// 	 1: 42,
+	// }
+	// tmpl.Execute(os.Stdout, data)
+
+	reader:= bufio.NewReader(os.Stdin)   // new reader from standard input
+	fmt.Println("Press Enter to exit...") // prompt message
+	name,_ :=reader.ReadString('\n') // read input until newline
+	name = strings.TrimSpace(name) // remove newline character
+
+	//define named templates for different types of 
+	templates:= map[string] string{
+		"welcome": "Welcome, {{.Name}}! we are glad to have you here.",
+		"notification": "Hello, {{.Name}}! You have new notifications. {{.Ntfs}}",
+		"error": "oops! an error occurred: {{.ErrorMsg}}",	
+	}
+
+	//parse and store templates
+	paresedTemplates:= make(map[string]*template.Template)
+	for name ,tmp1 := range templates {
+		paresedTemplates[name]=template.Must(template.New(name).
+										Parse(tmp1))
+}
+	for{//data for different templates
+	fmt.Println("\nMenu")
+	fmt.Println("1. Welcome Message")
+	fmt.Println("2. Notification Message")
+	fmt.Println("3. Error Message")
+	fmt.Println("4. Exit")
+	fmt.Print("Choose an option: ")
+	choice,_:= reader.ReadString('\n')
+	choice = strings.TrimSpace(choice)
+
+	var data map[string]string
+	var tmp1 *template.Template
+	switch choice {
+	case "1":
+		tmp1= paresedTemplates["welcome"]
+		data= map[string]string{
+			"Name": name}
+	case "2":
+		tmp1= paresedTemplates["notification"]
+		data= map[string]string{
+			"Name": name,
+			"Ntfs": "You have 5 new messages."}
+		}tmp1= paresedTemplates["welcome"]
+	}
