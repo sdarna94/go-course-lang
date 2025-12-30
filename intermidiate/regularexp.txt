@@ -1,0 +1,25 @@
+package main
+
+import (
+	"fmt"
+	"regexp"
+)
+
+func main() {
+	fmt.Println("This is a placeholder for the main function.")
+	fmt.Println(`he said "i am good for now"`)
+	//compile a regexp pattern
+	rg :=
+		//regex pattern
+		regexp.MustCompile(`^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$`) //yyyy-mm-dd
+
+	//match the pattern
+	matches := "2024-05-27"
+	fmt.Println(rg.MatchString(matches))
+
+	//source string
+	source := "My email is"
+	re := regexp.MustCompile(`[aeiou]`)
+	fmt.Println(re.ReplaceAllString(source, "*"))
+
+}

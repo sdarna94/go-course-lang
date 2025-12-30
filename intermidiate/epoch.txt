@@ -1,0 +1,16 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	fmt.Println("Hello, World!")
+	now := time.Now()
+	unixtime := now.Unix()
+	fmt.Println("Current Unix Time:", unixtime)
+	t := time.Unix(unixtime, 0)
+	fmt.Println("Converted Time:", t)
+
+}

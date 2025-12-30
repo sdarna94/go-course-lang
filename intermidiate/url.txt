@@ -1,0 +1,43 @@
+package main
+
+import "net/url"
+
+func main() {
+
+	// This is an intermediate file for URL handling.
+	//[schema ://] [userinfo@] host [:port] [/path] [?query] [#fragment]
+	schema := "https://"
+	userinfo := "user:password@"
+	host := "www.example.com"
+	port := ":8080"
+	path := "/path/to/resource"
+	query := "?key=value&key2=value2"
+	fragment := "#section1"
+	//url1 := "https://user:password@www.example.com:8080/path/to/resource?key=value&key2=value2#section1"
+	fullURL := schema + userinfo + host + port + path + query + fragment
+
+	println("Constructed URL:", fullURL)
+	//println("Constructed URL:", url1)
+
+	passurl, err := url.Parse(fullURL)
+	if err != nil {
+		println("Error parsing URL:", err.Error())
+		return
+
+	}
+	println("Parsed URL Scheme:", passurl.Scheme)
+
+	url2 := "http://www.example.com/path?name=john&age=30"
+	parsedURL2, err := url.Parse(url2)
+	if err != nil {
+		println("Error parsing URL:", err.Error())
+		return
+	}
+
+	queryParams := parsedURL2.Query()
+	println(url2)
+	println(queryParams.Encode())
+	println("name", queryParams.Get("name"))
+	println("age", queryParams.Get("age"))
+
+}
