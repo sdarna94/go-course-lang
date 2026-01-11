@@ -1,0 +1,36 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	fmt.Println("Main function started")
+	go hellosleep()
+	go number()
+	go letter()
+	time.Sleep(1 * time.Millisecond)
+	fmt.Println("Main function ended")
+}
+
+func hellosleep() {
+	time.Sleep(2 * time.Millisecond)
+	fmt.Println("Hello after 1 millisecond ")
+
+}
+
+func number() {
+	for i := 0; i < 5; i++ {
+		fmt.Println(i)
+		time.Sleep(100 * time.Millisecond)
+	}
+
+}
+
+func letter() {
+	for _, letter := range "abdedesdhisdwer" {
+		fmt.Println(string(letter))
+		//time.Sleep(10 * time.Millisecond)
+	}
+}
