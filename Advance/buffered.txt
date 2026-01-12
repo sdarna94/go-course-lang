@@ -1,0 +1,26 @@
+package main
+
+import (
+	"fmt"
+	//"time"
+)
+
+func main() {
+	fmt.Println("Hello, World!")
+
+	chann := make(chan int, 2) // buffered channel with capacity 2
+	chann <- 21                // send 42 to channel
+	chann <- 22                // send 27 to channel, will block until a receive occurs
+
+	go func() {
+		//time.Sleep(4 * time.Second)
+		fmt.Println("1st", <-chann)
+		fmt.Println("Channel received first value")
+	}()
+	fmt.Println("Sent two values to channel")
+	chann <- 23
+	fmt.Println("Sent third value to channel")
+	fmt.Println("2st", <-chann) // print received value
+	fmt.Println("3st", <-chann) // print received value
+
+}

@@ -1,0 +1,38 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	fmt.Println("Hello, World!")
+
+	chandri := make(chan int)
+	time.Sleep(2 * time.Second)
+	producer(chandri)
+
+	consumer(chandri)
+}
+
+// Producer function to send data to the channel
+func producer(chandri chan<- int) {
+
+	go func() {
+		for i := 0; i < 5; i++ {
+			chandri <- i
+			fmt.Println("Produced:", i)
+
+		}
+
+		close(chandri)
+	}()
+}
+
+// Consumer function to receive data from the channel
+func consumer(chandri <-chan int) {
+
+	for v := range chandri {
+		fmt.Println("consumer:", v)
+	}
+}

@@ -1,0 +1,41 @@
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, World!")
+
+	chanDir := make(chan int) // Channel declaration
+
+	//for sending channel direction
+	go func(chanDir chan int) { // Anonymous function with channel direction
+		for i := range 5 { // Sending data to the channel
+			chanDir <- i // Send value to channel
+		}
+		close(chanDir) // Close the channel after sending data
+
+	}(chanDir) // Passing channel to the function
+
+	// for value := range chanDir { // Receiving data from the channel
+	// 	fmt.Println("this is the value:", value)
+	//}
+
+	// Call the receiving function
+	ReceivingOnly(chanDir)
+}
+
+// now Receiving only channel direction
+func ReceivingOnly(chann <-chan int) { // Receiving only channel direction
+	for value := range chann { // Receiving data from the channel
+		fmt.Println("Received value:", value)
+	}
+}
+
+// // now Sending only channel direction
+// func SendingOnly(chann chan<- int) { // Sending only channel direction
+// 	for i := 0; i < 5; i++ { // Sending data to the channel
+// 		chann <- i // Send value to channel
+// 		fmt.Println("Sent value:", i)
+// 	}
+// 	close(chann) // Close the channel after sending data
+// }

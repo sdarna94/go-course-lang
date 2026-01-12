@@ -1,0 +1,20 @@
+package main
+
+import (
+	"context"
+	"fmt"
+)
+
+func main() {
+	fmt.Println("Hello, World!")
+
+	contextbgfg := context.Background()
+	ctx1 := context.WithValue(contextbgfg, "city ", "chicago")
+	fmt.Println(ctx1)
+	fmt.Println(ctx1.Value("city "))
+
+	contxttodo := context.TODO()
+	ctx := context.WithValue(contxttodo, "name", "john")
+	fmt.Println(ctx)
+	fmt.Println(ctx.Value("name"))
+}

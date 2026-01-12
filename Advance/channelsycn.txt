@@ -1,0 +1,21 @@
+package main
+
+import "time"
+
+func main() {
+
+	data := make(chan string)
+
+	go func() {
+		for i := range 5 {
+			data <- "Hello, World! " + string(rune(i+'0'))
+			time.Sleep(100 * time.Millisecond)
+		}
+		close(data)
+
+	}()
+
+	for valvue := range data {
+		println("Received:", valvue, ":", time.Now().String())
+	}
+}

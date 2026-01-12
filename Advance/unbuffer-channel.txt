@@ -1,0 +1,20 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println("Unbuffered Channel Example")
+
+	ch := make(chan int) // create an unbuffered channel
+
+	go func() {
+
+		ch <- 42 // send a value to the channel
+	}()
+
+	val := <-ch // receive a value from the channel
+	fmt.Println("Received:", val)
+
+}
