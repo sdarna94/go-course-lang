@@ -1,0 +1,22 @@
+package main
+
+import "time"
+
+type RateLimiter struct { 	// RateLimiter controls the rate of actions
+	tokens      chan struct{}
+	refilltime time.Duration
+}
+func NewRateLimiter(rateLimit int, refilltime time.Duration) *RateLimiter {
+	rl := &RateLimiter{
+		tokens:      make(chan struct{}, rateLimit),
+		refilltime: refilltime,
+	}
+	for range rateLimit {
+		rl.tokens <- struct{}{}
+	}
+	return rl
+}
+
+func main() {
+	// Example usage of RateLimiter
+}
