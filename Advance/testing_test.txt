@@ -1,0 +1,39 @@
+package main
+
+import (
+	"testing"
+	//"golang.org/x/tools/go/expect"
+)
+
+func add(a, b int) int {
+	return a + b
+
+}
+
+// func TestAdd(t *testing.T) {
+// 	result := add(2, 3)
+// 	expected := 5
+// 	fmt.Println("Hello, World!")
+// 	if result != expected {
+// 		fmt.Println("Hello, World!")
+// 		t.Errorf("Expected 5 but got %d", result)
+// 	}
+// 	//fmt.Println("Hello, World!")
+
+// }
+
+func TestAddAdding(t *testing.T) {
+	test := []struct{ a, b, expected int }{
+		{2, 3, 5},
+		{0, 0, 0},
+		{-1, 1, 1},
+	}
+
+	for _, tt := range test {
+		result := add(tt.a, tt.b)
+		if result != tt.expected {
+			t.Errorf("add(%d,%d): expected %d but got %d", tt.a, tt.b, tt.expected, result)
+		}
+
+	}
+}

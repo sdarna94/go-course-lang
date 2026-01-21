@@ -1,0 +1,19 @@
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+func main() {
+	fmt.Println("hello")
+	numnber := []int{3, 2, 6, 3, 7, 5, 4}
+	fmt.Println(numnber)
+	sort.Ints(numnber)
+	fmt.Println(numnber)
+
+	names := []string{"sachin", "rahul", "anil", "virat"}
+	fmt.Println(names)
+	sort.Strings(names)
+	fmt.Println(names)
+}
