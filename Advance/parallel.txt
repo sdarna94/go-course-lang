@@ -1,0 +1,30 @@
+package main
+
+import (
+	"fmt"
+
+	"time"
+)
+
+func printnum() {
+	for i := range 5 {
+		fmt.Println(time.Now())
+		fmt.Println("the value is ", i)
+		time.Sleep(500 * time.Millisecond)
+	}
+}
+
+func printletter() {
+	for _, v := range "ABCD" {
+		fmt.Println(time.Now())
+		fmt.Println("the leeters are ", string(v))
+		time.Sleep(500 * time.Millisecond)
+	}
+}
+
+func main() {
+	go printnum()
+	go printletter()
+
+	time.Sleep(3 * time.Second)
+}
