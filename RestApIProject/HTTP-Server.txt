@@ -1,0 +1,24 @@
+package main
+
+import (
+	//"errors"
+	"fmt"
+	"log"
+	"net/http"
+)
+
+func main() {
+	http.HandleFunc("/", func(resp http.ResponseWriter, req *http.Request) {
+		//resp.Write([]byte("Hello World! This is my first HTTP Server in GoLang"))
+		fmt.Fprintln(resp, "hello server")
+
+	})
+
+	const port string = ":3000"
+	fmt.Println("its listining ")
+	err := http.ListenAndServe(port, nil)
+	if err != nil {
+		log.Fatalf("error", err)
+	}
+
+}
