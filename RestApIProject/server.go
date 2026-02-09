@@ -8,7 +8,8 @@ import (
 
 func main() {
 
-	port := ":3030"
-	fmt.Printf("Starting server on port %s\n", port)
+	port := 3030
+	fmt.Printf("Starting server on port %d\n", port)
 	http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+
 }
