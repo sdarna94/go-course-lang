@@ -6,7 +6,7 @@ class multiply {
     public ArrayList<Integer> getTable(int n) {
         ArrayList<Integer> res = new ArrayList<>(10);
         for (int i = 1; i <= 10; i++) {
-            res.add(n * i);    // n*1 ... n*10
+            res.add(n * i);    // n*1 ... n*10 
         }
         return res;
     }
